@@ -21,17 +21,20 @@ body{
 	height: auto;
 	padding-top: 100px;
 }
-ul {
+.home_img {
 	list-style: none;
+	position:relative;
 }
-li {
+.home_img_li {
+	position:absolute;
 	width: 18%;
 	display: inline-block;
-	margin:0 5px 5px 0;
 	border:1px solid black;
 	box-shadow:1px 1px gray;
 }
-li img {
+
+
+.home_img_li img {
 	width: 100%;
 }
 
