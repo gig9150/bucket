@@ -15,6 +15,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
 	 </definition>
 	 
+	 <definition name=".*" extends=".main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+	 </definition>
+	 
 </tiles-definitions>
 
 

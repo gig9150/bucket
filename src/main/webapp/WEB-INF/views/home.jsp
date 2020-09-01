@@ -10,7 +10,7 @@
 		</div>
 		<div class="img_id">
 			<p>
-				${test}
+				<a href="${cp}/member/join">회원가입</a>
 			</p>
 		</div>
 	</li>
