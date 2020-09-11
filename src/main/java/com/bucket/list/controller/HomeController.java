@@ -18,15 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private SqlSession sqlSession;
-	
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model,HttpSession session) {
 		String cp=session.getServletContext().getContextPath();
 		session.getServletContext().setAttribute("cp",cp);
 		return ".main";
 	}
-	
 }

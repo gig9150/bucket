@@ -2,6 +2,7 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
+DROP TABLE IF EXISTS bucket_img;
 DROP TABLE IF EXISTS bucket_like;
 DROP TABLE IF EXISTS bucket;
 DROP TABLE IF EXISTS category;
@@ -23,6 +24,15 @@ CREATE TABLE bucket
 	title varchar(100),
 	content text,
 	PRIMARY KEY (bucket_id)
+);
+
+
+CREATE TABLE bucket_img
+(
+	bucket_img_id int(11) NOT NULL AUTO_INCREMENT,
+	bucket_id int(11) NOT NULL,
+	file varchar(200),
+	PRIMARY KEY (bucket_img_id)
 );
 
 
@@ -90,6 +100,14 @@ CREATE TABLE member
 
 
 /* Create Foreign Keys */
+
+ALTER TABLE bucket_img
+	ADD FOREIGN KEY (bucket_id)
+	REFERENCES bucket (bucket_id)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
 
 ALTER TABLE bucket_like
 	ADD FOREIGN KEY (bucket_id)
