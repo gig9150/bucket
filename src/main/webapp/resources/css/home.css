@@ -9,7 +9,7 @@ body {
 	line-height: 1.5;
 	font-family: 'Jua', sans-serif;
 	font-size: 16px;
-	box-sizing: border-box;
+	box-sizing: border-box !important;
 }
 /*/////////*/
 #wrap {
@@ -29,29 +29,38 @@ body {
 	width: 100%;
 	height: auto;
 	padding-top: 100px;
-	background-color: #525252;
 }
 
-.item {
-	margin: 5px;
-	width: 100px;
-	height: 100px;
-	background-color: white;
-	border-radius: 10px;
+/* masonry */
+.bucket_list_item {
+	margin: 0 0 20px 50px;
 	float: left;
+	width: 300px;
+	height: 100px;
+	border: 2px solid solid;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.big {
-	width: 210px;
-	height: 430px;
+.bucket_list_item img {
+	height: 70%;
+	width: 100%;
 }
 
-.normal {
-	width: 210px;
-	height: 210px;
+.bucket_list_item p {
+	height: 30%;
+	widht: 100%;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 5px 0 0 5px;
 }
 
-.small {
-	width: 100px;
-	height: auto;
+.size1 {
+	height: 300px;
+}
+
+.size2 {
+	height: 300px;
+}
+
+.size3 {
+	height: 180px;
 }
