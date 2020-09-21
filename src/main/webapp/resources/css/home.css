@@ -32,11 +32,12 @@ body {
 }
 
 /* masonry */
+
 .bucket_list_item {
 	margin: 0 0 20px 50px;
-	float: left;
-	width: 300px;
-	height: 100px;
+	float:left;
+	width: 17%;
+	height: 300px;
 	border: 2px solid solid;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -51,16 +52,4 @@ body {
 	widht: 100%;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	padding: 5px 0 0 5px;
-}
-
-.size1 {
-	height: 300px;
-}
-
-.size2 {
-	height: 300px;
-}
-
-.size3 {
-	height: 180px;
 }

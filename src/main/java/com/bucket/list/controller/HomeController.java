@@ -22,6 +22,7 @@ public class HomeController {
 	public String home(Model model,HttpSession session) {
 		String cp=session.getServletContext().getContextPath();
 		session.getServletContext().setAttribute("cp",cp);
+		System.out.println(cp);
 		return ".main";
 	}
 }
