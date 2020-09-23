@@ -1,6 +1,10 @@
 $(function(){
 	
-	
+	$('.bucket_list').masonry({
+        itemSelector:'.bucket_list_item',
+        columnWidth:110,
+        isAnimated:true
+    });
 	
 	$(window).scroll(function(){
 		var scrollHeight = $(window).scrollTop() + $(window).height();
@@ -12,6 +16,8 @@ $(function(){
 	            item += '<img src="/list/resources/image/1.png"><p>123123</p>';
 	            item += '</div>'
 	            $('.bucket_list').append(item);
+	            $('.bucket_list').masonry('reloadItems');
+                $('.bucket_list').masonry('layout');
 	        }
 	    }
 	});

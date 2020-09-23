@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <script src="${cp}/resources/js/jquery-3.5.1.js"></script>
 <script src="${cp}/resources/js/home.js"></script>
+<script src="${cp}/resources/js/masonry.pkgd.min.js"></script>
 </head>
 <body>
 <section id="wrap">
