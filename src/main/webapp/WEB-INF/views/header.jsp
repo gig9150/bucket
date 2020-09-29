@@ -7,12 +7,6 @@
 		<a class="navbar-item" href="${cp}"> <img
 			src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
 		</a>
-
-		<!--     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"> -->
-		<!--       <span aria-hidden="true"></span> -->
-		<!--       <span aria-hidden="true"></span> -->
-		<!--       <span aria-hidden="true"></span> -->
-		<!--     </a> -->
 	</div>
 
 	<div id="navbarBasicExample" class="navbar-menu">
@@ -63,7 +57,7 @@
 								</div>
 							</div>
 							<a class="button is-info" style="margin-bottom:0;" 
-							href="${cp}/mypage/bucket"> write bucketList
+							href="${cp}/write/bucket"> write bucketList
 							</a>
 						</div>
 					</c:otherwise>
