@@ -36,7 +36,7 @@
 
 						<div class="field">
 							<div class="control">
-								<input class="input is-large" type="phone"
+								<input class="input is-large" type="tel"
 									placeholder="Your Phone" name="phone">
 							</div>
 						</div>

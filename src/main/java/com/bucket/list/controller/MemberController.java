@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bucket.list.service.MemberService;
@@ -23,13 +24,13 @@ public class MemberController {
 	
 //	로그인 기능
 	@RequestMapping("/member/loginOk")
-	public String gologinOk(String id,String pwd,HttpSession session) {
+	public String gologinOk(String id,String pwd,HttpSession session,Model model) {
 		HashMap<String ,String> map = new HashMap<String,String>();
 		map.put("id",id);
 		map.put("pwd",pwd);
 		String member_id = service.login(map);
 		if(member_id == null) {
-			session.setAttribute("msg", "fail");
+			model.addAttribute("msg", "fail");
 			return ".member.login";
 		}else {
 			session.setAttribute("id", member_id);

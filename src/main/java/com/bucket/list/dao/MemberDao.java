@@ -11,7 +11,7 @@ public class MemberDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	private final String NAMESPACE = "com.bucket.mapper";
+	private final String NAMESPACE = "com.bucket.mapper.member";
 	
 	public int join(HashMap<String,String> map) {
 		return sqlSession.insert(NAMESPACE+".join",map);

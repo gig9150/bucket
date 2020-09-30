@@ -36,7 +36,7 @@
 							Login <i class="fa fa-sign-in" aria-hidden="true"></i>
 						</button>
 						<c:if test="${msg eq 'fail'}">
-							<div class="field" style="padding-top:20px;">
+							<div class="field" style="padding-top:20px;color:red">
 								<p>앗! 아이디와 비밀번호를 다시 확인해주세요.</p>
 							</div>
 						</c:if>

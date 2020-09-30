@@ -53,22 +53,11 @@ body {
 	padding: 5px 0 0 5px;
 }
 
-/* .size1{ */
-/* 	height:100px; */
-/* } */
+/* 버킷리스트 작성페이지 css */
+#column2 .control input{
+	margin:20px 0 20px 0;
+}
 
-/* .size2{ */
-/* 	height:150px; */
-/* } */
-
-/* .size3{ */
-/* 	height:200px; */
-/* } */
-
-/* .size4{ */
-/* 	height:250px; */
-/* } */
-
-/* .size5{ */
-/* 	height:300px; */
-/* } */
+.control .button.is-rounded{
+	float:right;
+}

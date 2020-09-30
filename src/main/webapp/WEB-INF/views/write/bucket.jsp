@@ -26,18 +26,17 @@
 					<img id="column2_img">
 				</div>
 			    <div class="control">
-			    	<label class="label">제목
-			    	<input type="text" class="input"></label>
+			    	<input type="text" class="input" name="title" placeholder="제목을 입력하세요.">
 			    </div>
 			    <div class="control">
-			    	<label class="label">내용
-			    	<input type="text" class="input"></label>
+					<textarea id="summernote" name="content"></textarea>
 			    </div>
 			    <div class="control">
-			    	<label class="label">태그추가
-			    	<input type="text" class="input"></label>
-			    	<input type="button" class="button" value="등록 ">
-		    	</div>		
+			    	<input type="text" name="tag" class="input" placeholder="추가하실 태그를 ,로 연결해주세요">
+		    	</div>
+		    	<div class="control">
+		    		<input type="submit" value="작성" class="button is-rounded">
+		    	</div>
 	    	</div>
     	</form>
     </div>

@@ -2,10 +2,9 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS bucket_img;
 DROP TABLE IF EXISTS bucket_like;
+DROP TABLE IF EXISTS bucket_tag;
 DROP TABLE IF EXISTS bucket;
-DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS follow;
 DROP TABLE IF EXISTS free_board_comment;
 DROP TABLE IF EXISTS free_board;
@@ -19,20 +18,12 @@ DROP TABLE IF EXISTS member;
 CREATE TABLE bucket
 (
 	bucket_id int(11) NOT NULL AUTO_INCREMENT,
-	category_id int(11) NOT NULL,
 	member_id varchar(30) NOT NULL,
 	title varchar(100),
 	content text,
+	ori_file varchar(200),
+	sav_file varchar(200),
 	PRIMARY KEY (bucket_id)
-);
-
-
-CREATE TABLE bucket_img
-(
-	bucket_img_id int(11) NOT NULL AUTO_INCREMENT,
-	bucket_id int(11) NOT NULL,
-	file varchar(200),
-	PRIMARY KEY (bucket_img_id)
 );
 
 
@@ -45,11 +36,12 @@ CREATE TABLE bucket_like
 );
 
 
-CREATE TABLE category
+CREATE TABLE bucket_tag
 (
-	category_id int(11) NOT NULL AUTO_INCREMENT,
-	name varchar(30) NOT NULL,
-	PRIMARY KEY (category_id)
+	bucket_tag_id int(11) NOT NULL AUTO_INCREMENT,
+	bucket_id int(11) NOT NULL,
+	tag_name varchar(50),
+	PRIMARY KEY (bucket_tag_id)
 );
 
 
@@ -65,7 +57,7 @@ CREATE TABLE follow
 
 CREATE TABLE free_board
 (
-	free_board_id int(11) NOT NULL,
+	free_board_id int(11) NOT NULL AUTO_INCREMENT,
 	title varchar(100),
 	content text,
 	image varchar(100),
@@ -101,14 +93,6 @@ CREATE TABLE member
 
 /* Create Foreign Keys */
 
-ALTER TABLE bucket_img
-	ADD FOREIGN KEY (bucket_id)
-	REFERENCES bucket (bucket_id)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
 ALTER TABLE bucket_like
 	ADD FOREIGN KEY (bucket_id)
 	REFERENCES bucket (bucket_id)
@@ -117,9 +101,9 @@ ALTER TABLE bucket_like
 ;
 
 
-ALTER TABLE bucket
-	ADD FOREIGN KEY (category_id)
-	REFERENCES category (category_id)
+ALTER TABLE bucket_tag
+	ADD FOREIGN KEY (bucket_id)
+	REFERENCES bucket (bucket_id)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
