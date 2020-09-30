@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bucket.mapper.bucket">
+	<insert id="insert" parameterType="com.bucket.list.vo.BucketVo">
+		insert into bucket values(0,#{member_id},#{title},#{content},#{ori_file},#{sav_file})
+	</insert>
+	
+	<insert id="tagInsert" parameterType="hashmap">
+		insert into bucket_tag values(0,#{bucket_id},#{tag_name})
+	</insert>
+	
+	<select id="getBucketNum" resultType="int">
+		select bucket_id from bucket
+	</select>
+</mapper>
