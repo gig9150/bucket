@@ -61,3 +61,10 @@ body {
 .control .button.is-rounded{
 	float:right;
 }
+
+.tag_button{
+	position:absolute;
+	right:0;
+	background-image: url("../image/plus.png");
+	background-repeat:no-repeat;
+}

@@ -31,7 +31,7 @@ public class BucketlistController {
 	//db저장
 	@RequestMapping("/write/goBucket")
 	public String bucket(HttpSession session,MultipartFile file,Model model,String title,
-			String content,String tag) {
+			String content,String[] tag) {
 		String uploadPath = session.getServletContext().getRealPath("/resources/upload");
 		String orgfileName = file.getOriginalFilename();
 //		중복방지하기위해 랜덤숫자 생성 
@@ -45,6 +45,7 @@ public class BucketlistController {
 			fis.close();
 			fos.close();
 			BucketVo vo = new BucketVo(0,(String)session.getAttribute("id"),title,content,orgfileName,savefileName);
+			service.insert(vo,tag);
 			return ".main";
 		}catch(IOException ie) {
 			System.out.println(ie.getMessage());

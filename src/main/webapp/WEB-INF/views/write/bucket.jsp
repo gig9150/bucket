@@ -3,7 +3,7 @@
 <section class="hero is-primary is-fullheight">
   <div class="hero-body">
     <div class="container has-text-centered">
-    	<form action="${cp}/write/bucket" enctype="multipart/form-data">
+    	<form action="${cp}/write/bucket" enctype="multipart/form-data" method="post">
 	   		<div class="column is-three-fifths is-offset-one-fifth" id="column1">
 	   				<!-- 이미지 선택 -->
 	   				<h3 class="title has-text-black">이미지를 선택해 주세요.</h3>
@@ -32,7 +32,11 @@
 					<textarea id="summernote" name="content"></textarea>
 			    </div>
 			    <div class="control">
-			    	<input type="text" name="tag" class="input" placeholder="추가하실 태그를 ,로 연결해주세요">
+			    	<input type="text" class="tag_input input" placeholder="태그를 입력해주세요">
+			    	<input type="button" class="tag_button button" value="등록">
+		    	</div>
+		    	<div class="control_tag">
+		    		
 		    	</div>
 		    	<div class="control">
 		    		<input type="submit" value="작성" class="button is-rounded">
@@ -42,3 +46,15 @@
     </div>
   </div>
 </section>
+<script>
+	$('.tag_button').click(function(){
+		if($('.tag_input').val()==''){
+			alert('태그를 입력해주세용');
+		}else{
+			var tag = $('.tag_input').val();
+			var tag_content = '<input type="button" name="tag" class="button" value="'+tag+'">';
+			$(tag_content).hide().appendTo('.control_tag').show(1000);	
+			$('.tag_input').val('');
+		}
+	});
+</script>
