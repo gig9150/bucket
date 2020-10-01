@@ -23,9 +23,11 @@ public class BucketlistService {
 		int num = dao.getBucketNum(savefileName);
 		HashMap<Object, Object> map = new HashMap<Object,Object>();
 		map.put("bucket_id", num);
-		for(int i=0;i<tag.length;i++) {
-			map.put("tag_name", tag[i]);
-			dao.tagInsert(map);
+		if(tag != null) {
+			for(int i=0;i<tag.length;i++) {
+				map.put("tag_name", tag[i]);
+				dao.tagInsert(map);
+			}
 		}
 		return 0;
 	}

@@ -33,7 +33,7 @@ public class BucketlistController {
 	//db저장
 	@RequestMapping("/write/goBucket")
 	public String bucket(HttpSession session,MultipartFile file,Model model,String title,
-			String content,@RequestBody String[] tag) {
+			String content,String[] tag) {
 		String uploadPath = session.getServletContext().getRealPath("/resources/upload");
 		String orgfileName = file.getOriginalFilename();
 //		중복방지하기위해 랜덤숫자 생성 

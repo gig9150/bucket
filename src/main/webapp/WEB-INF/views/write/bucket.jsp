@@ -5,19 +5,19 @@
     <div class="container has-text-centered">
     	<form action="${cp}/write/goBucket" enctype="multipart/form-data" method="post">
 	   		<div class="column is-three-fifths is-offset-one-fifth" id="column1">
-	   				<!-- 이미지 선택 -->
-	   				<h3 class="title has-text-black">이미지를 선택해 주세요.</h3>
-					<hr class="login-hr">
-		    		<div class="file is-centered is-large">
-					  <label class="file-label">
-					    <input class="file-input" type="file" name="file" onchange="fileUpload(this)">
-					    <span class="file-cta">
-					      <span class="file-label">
-					        Choose a file…
-					      </span>
-					    </span>
-					  </label>
-					</div>
+   				<!-- 이미지 선택 -->
+   				<h3 class="title has-text-black">이미지를 선택해 주세요.</h3>
+				<hr class="login-hr">
+	    		<div class="file is-centered is-large">
+				  <label class="file-label">
+				    <input class="file-input" type="file" name="file" onchange="fileUpload(this)">
+				    <span class="file-cta">
+				      <span class="file-label">
+				        Choose a file…
+				      </span>
+				    </span>
+				  </label>
+				</div>
 	    	</div>
 	    	<div class="column is-three-fifths is-offset-one-fifth" id="column2" style="display:none">
 	    		<h3 class="title has-text-black">글 등록</h3>
