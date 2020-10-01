@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bucket.list.service.BucketlistService;
@@ -31,12 +33,11 @@ public class BucketlistController {
 	//db저장
 	@RequestMapping("/write/goBucket")
 	public String bucket(HttpSession session,MultipartFile file,Model model,String title,
-			String content,String[] tag) {
+			String content,@RequestBody String[] tag) {
 		String uploadPath = session.getServletContext().getRealPath("/resources/upload");
 		String orgfileName = file.getOriginalFilename();
 //		중복방지하기위해 랜덤숫자 생성 
 		String savefileName = UUID.randomUUID()+"_"+orgfileName;
-		System.out.println(UUID.randomUUID());
 		try {
 			InputStream fis = file.getInputStream();
 			FileOutputStream fos = 
@@ -45,14 +46,14 @@ public class BucketlistController {
 			fis.close();
 			fos.close();
 			BucketVo vo = new BucketVo(0,(String)session.getAttribute("id"),title,content,orgfileName,savefileName);
-			service.insert(vo,tag);
-			return ".main";
+			int n = service.insert(vo,tag,savefileName);
+			return ".write.success";
 		}catch(IOException ie) {
 			System.out.println(ie.getMessage());
-			return ".error";
+			return ".write.error";
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
-			return ".error";
+			return ".write.error";
 		}
 	}
 	

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bucket.list.dao.BucketlistDao;
 import com.bucket.list.vo.BucketVo;
@@ -16,9 +18,9 @@ public class BucketlistService {
 	private BucketlistDao dao;
 	
 	@Transactional
-	public int insert(BucketVo vo,String[] tag) {
+	public int insert(BucketVo vo,String[] tag,String savefileName) {
 		dao.insert(vo);
-		int num = dao.getBucketNum();
+		int num = dao.getBucketNum(savefileName);
 		HashMap<Object, Object> map = new HashMap<Object,Object>();
 		map.put("bucket_id", num);
 		for(int i=0;i<tag.length;i++) {

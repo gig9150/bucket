@@ -68,3 +68,15 @@ body {
 	background-image: url("../image/plus.png");
 	background-repeat:no-repeat;
 }
+
+.control_tag_content{
+	display:none;
+	color:red;
+}
+
+input[name="tag"]{
+	margin-right:10px;
+	margin-bottom:10px;
+	width:31%;
+}
+

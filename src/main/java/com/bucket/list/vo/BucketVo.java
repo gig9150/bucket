@@ -67,6 +67,7 @@ public class BucketVo {
 	public void setSav_file(String sav_file) {
 		this.sav_file = sav_file;
 	}
+
 	
 	
 }

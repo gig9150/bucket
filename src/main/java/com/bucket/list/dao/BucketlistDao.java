@@ -16,17 +16,15 @@ public class BucketlistDao {
 	private final String NAMESPACE = "com.bucket.mapper.bucket";
 	
 	public int insert(BucketVo vo) {
-		sqlSession.insert(NAMESPACE+".insert",vo);
-		return 1;
+		return sqlSession.insert(NAMESPACE+".insert",vo);
 	}
 	
 	public int tagInsert(HashMap<Object,Object> map) {
-		sqlSession.insert(NAMESPACE+".tagInsert",map);
-		return 1;
+		return sqlSession.insert(NAMESPACE+".tagInsert",map);
 	}
 	
-	public int getBucketNum() {
-		return sqlSession.selectOne(NAMESPACE+".getBucketNum");
+	public int getBucketNum(String savefileName) {
+		return sqlSession.selectOne(NAMESPACE+".getBucketNum",savefileName);
 	}
 	
 	

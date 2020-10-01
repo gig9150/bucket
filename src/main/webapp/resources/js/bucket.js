@@ -25,5 +25,27 @@ $(function(){
 		  lang: "ko-KR",				
 		  placeholder: '당신의 버킷리스트를 입력하세요!!'	
 	});
+	
+	$('.tag_button').click(function(){
+		if($('.tag_input').val()==''){
+			alert('태그를 입력해주세용');
+		}else{
+			var tag = $('.tag_input').val();
+			var tag_content = 
+				'<input type="text" name="tag" class="input tag_content" value="'+tag+'" readonly>';
+			$(tag_content).hide().appendTo('.control_tag').show(1000);	
+			$('.tag_input').val('');
+		}
+	});
+	
+	$('.tag_button').one('click',function(){
+		$('.control_tag_content').css('display','block');
+	});
+	
+	$(document).on('dblclick','input[name="tag"]',function(){
+		$(this).hide(1000);
+	});
+		
+		
 });
 

@@ -11,7 +11,7 @@
 		insert into bucket_tag values(0,#{bucket_id},#{tag_name})
 	</insert>
 	
-	<select id="getBucketNum" resultType="int">
-		select bucket_id from bucket
+	<select id="getBucketNum" resultType="int" parameterType="string">
+		select bucket_id from bucket where sav_file=#{savefileName}
 	</select>
 </mapper>
