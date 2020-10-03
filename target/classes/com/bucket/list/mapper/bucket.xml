@@ -14,4 +14,8 @@
 	<select id="getBucketNum" resultType="int" parameterType="string">
 		select bucket_id from bucket where sav_file=#{savefileName}
 	</select>
+	
+	<select id="select" resultType="com.bucket.list.vo.BucketVo" parameterType="int" >
+		select * from bucket order by bucket_id desc limit #{pageNum},10;
+	</select>
 </mapper>

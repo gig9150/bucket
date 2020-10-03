@@ -1,6 +1,7 @@
 package com.bucket.list.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class BucketlistDao {
 	
 	public int getBucketNum(String savefileName) {
 		return sqlSession.selectOne(NAMESPACE+".getBucketNum",savefileName);
+	}
+	
+	public List<BucketVo> getBucket(int pageNum){
+		return sqlSession.selectList(NAMESPACE+".select",pageNum);
 	}
 	
 	
