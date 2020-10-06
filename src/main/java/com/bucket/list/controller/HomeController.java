@@ -34,10 +34,5 @@ public class HomeController {
 		model.addAttribute("list",list);
 		return ".main";
 	}
-	
-//	@RequestMapping("")
-//	@ResponseBody
-//	public String getBucket() {
-//		
-//	}
+
 }

@@ -14,6 +14,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bucket.list.service.BucketlistService;
@@ -45,7 +46,7 @@ public class BucketlistController {
 			FileCopyUtils.copy(fis, fos);
 			fis.close();
 			fos.close();
-			BucketVo vo = new BucketVo(0,(String)session.getAttribute("id"),title,content,orgfileName,savefileName);
+			BucketVo vo = new BucketVo(0,(String)session.getAttribute("id"),title,content,orgfileName,savefileName,0);
 			int n = service.insert(vo,tag,savefileName);
 			return ".write.success";
 		}catch(IOException ie) {
@@ -56,6 +57,10 @@ public class BucketlistController {
 			return ".write.error";
 		}
 	}
-	
-	
+	//버킷리스트 홈 페이지 데이터 ajax
+	@RequestMapping("")
+	@ResponseBody
+	public String getBucket() {
+		return null;
+	}
 }

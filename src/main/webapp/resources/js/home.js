@@ -29,6 +29,13 @@ $(function(){
 //	            $('.bucket_list').masonry('reloadItems');
 //	            $('.bucket_list').masonry('layout');
 //	        }
+//	    	$.ajax({
+//	    		url:"/bucket/list",
+//	    		dataType:json,
+//	    		success:function(data){
+//	    			
+//	    		}
+//	    	});
 	    }
 	});
 });

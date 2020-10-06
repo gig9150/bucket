@@ -7,10 +7,12 @@ public class BucketVo {
 	private String content;
 	private String ori_file;
 	private String sav_file;
+	private int li;
 	
 	public BucketVo() {}
 
-	public BucketVo(int bucket_id, String member_id, String title, String content, String ori_file, String sav_file) {
+	public BucketVo(int bucket_id, String member_id, String title, String content, String ori_file, String sav_file,
+			int li) {
 		super();
 		this.bucket_id = bucket_id;
 		this.member_id = member_id;
@@ -18,6 +20,7 @@ public class BucketVo {
 		this.content = content;
 		this.ori_file = ori_file;
 		this.sav_file = sav_file;
+		this.li = li;
 	}
 
 	public int getBucket_id() {
@@ -68,6 +71,12 @@ public class BucketVo {
 		this.sav_file = sav_file;
 	}
 
-	
+	public int getLi() {
+		return li;
+	}
+
+	public void setLi(int li) {
+		this.li = li;
+	}
 	
 }

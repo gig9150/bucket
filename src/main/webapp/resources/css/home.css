@@ -41,16 +41,30 @@ body {
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.bucket_list_item img {
+.bucket_list_item > img {
 	height: 70%;
 	width: 100%;
 }
 
-.bucket_list_item p {
+.bucket_list_item div {
 	height: 30%;
 	widht: 100%;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	padding: 5px 0 0 5px;
+}
+
+.bucket_list_item div p{
+	position:relative;
+}
+
+.bucket_list_item div p span{
+	position: absolute;
+	left:25px;
+}
+
+.bucket_list_item div p img{
+	width:20px;
+	height:20px;
 }
 
 /* 버킷리스트 작성페이지 css */
