@@ -22,14 +22,18 @@ public class BucketlistService {
 	public int insert(BucketVo vo,String[] tag,String savefileName) {
 		dao.insert(vo);
 		int num = dao.getBucketNum(savefileName);
-		HashMap<Object, Object> map = new HashMap<Object,Object>();
-		map.put("bucket_id", num);
+		HashMap<Object, Object> tagMap = new HashMap<Object,Object>();
+		HashMap<Object, Object> likeMap = new HashMap<Object,Object>();
+		tagMap.put("bucket_id", num);
+		likeMap.put("bucket_id",num);
+		likeMap.put("member_id",vo.getMember_id());
 		if(tag != null) {
 			for(int i=0;i<tag.length;i++) {
-				map.put("tag_name", tag[i]);
-				dao.tagInsert(map);
+				tagMap.put("tag_name", tag[i]);
+				dao.tagInsert(tagMap);
 			}
 		}
+		dao.likeInsert(likeMap);
 		return 0;
 	}
 	

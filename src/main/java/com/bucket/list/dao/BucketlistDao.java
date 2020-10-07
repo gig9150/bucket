@@ -24,6 +24,10 @@ public class BucketlistDao {
 		return sqlSession.insert(NAMESPACE+".tagInsert",map);
 	}
 	
+	public int likeInsert(HashMap<Object,Object> map) {
+		return sqlSession.insert(NAMESPACE+".likeInsert",map);
+	}
+	
 	public int getBucketNum(String savefileName) {
 		return sqlSession.selectOne(NAMESPACE+".getBucketNum",savefileName);
 	}

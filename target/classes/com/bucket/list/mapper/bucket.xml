@@ -11,17 +11,22 @@
 		insert into bucket_tag values(0,#{bucket_id},#{tag_name})
 	</insert>
 	
+	<insert id="likeInsert" parameterType="hashmap">
+		insert into bucket_like values(0,#{member_id},#{bucket_id})
+	</insert>
+	
 	<select id="getBucketNum" resultType="int" parameterType="string">
 		select bucket_id from bucket where sav_file=#{savefileName}
 	</select>
 	
 	<select id="select" resultType="com.bucket.list.vo.BucketVo" parameterType="int" >
-		select b.member_id,b.title,b.sav_file,count(*) li
-		from bucket b, bucket_like l 
-		where b.bucket_id = l.bucket_id 
+		select b.member_id,b.title,b.sav_file,count(*)-1 li,m.image
+		from bucket b, bucket_like l,member m 
+		where b.bucket_id = l.bucket_id and m.member_id = b.member_id
 		group by l.bucket_id 
 		order by b.bucket_id desc
 		limit #{pageNum},10
+
 	</select>
 	
 </mapper>

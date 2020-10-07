@@ -46,7 +46,7 @@ public class BucketlistController {
 			FileCopyUtils.copy(fis, fos);
 			fis.close();
 			fos.close();
-			BucketVo vo = new BucketVo(0,(String)session.getAttribute("id"),title,content,orgfileName,savefileName,0);
+			BucketVo vo = new BucketVo(0,(String)session.getAttribute("id"),title,content,orgfileName,savefileName,0,null);
 			int n = service.insert(vo,tag,savefileName);
 			return ".write.success";
 		}catch(IOException ie) {

@@ -1,6 +1,7 @@
 package com.bucket.list.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bucket.list.service.MemberService;
+import com.bucket.list.vo.BucketVo;
 
 @Controller
 public class MemberController {
@@ -34,7 +36,7 @@ public class MemberController {
 			return ".member.login";
 		}else {
 			session.setAttribute("id", member_id);
-			return ".main";
+			return "redirect:/";
 		}
 	}
 	
@@ -63,6 +65,6 @@ public class MemberController {
 	@RequestMapping("/member/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return ".main";
+		return "redirect:/";
 	}
 }
