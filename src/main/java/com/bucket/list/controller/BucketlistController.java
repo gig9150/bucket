@@ -3,6 +3,7 @@ package com.bucket.list.controller;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -58,9 +59,9 @@ public class BucketlistController {
 		}
 	}
 	//버킷리스트 홈 페이지 데이터 ajax
-	@RequestMapping("")
-	@ResponseBody
-	public String getBucket() {
-		return null;
+	@RequestMapping("/bucket/list")
+	public @ResponseBody List<BucketVo> getBucket(int pageNum) {
+		List<BucketVo> list = service.getBucket(pageNum);
+		return list;
 	}
 }

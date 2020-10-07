@@ -1,8 +1,6 @@
 $(function(){
-	
-//	$.ajax({
-//		url:
-//	});
+//	페이징처리 변수
+	var pageNum = 10;
 	
 	var $bucket = $('.bucket_list').masonry({
         itemSelector:'.bucket_list_item',
@@ -19,23 +17,35 @@ $(function(){
 	$(window).scroll(function(){
 		var scrollHeight = $(window).scrollTop() + $(window).height();
 	    var documentHeight = $(document).height();
-
+	    
 	    if(scrollHeight >= documentHeight-3){
-//	        for(var i = 0;i<10;i++){
-//	            var item = '<div class="bucket_list_item">';
-//	            item += '<img src="/list/resources/image/2.png"><p>123123</p>';
-//	            item += '</div>'
-//	            $('.bucket_list').append(item);
-//	            $('.bucket_list').masonry('reloadItems');
-//	            $('.bucket_list').masonry('layout');
-//	        }
-//	    	$.ajax({
-//	    		url:"/bucket/list",
-//	    		dataType:json,
-//	    		success:function(data){
-//	    			
-//	    		}
-//	    	});
+	    	$.ajax({
+	    		url:"/list/bucket/list?pageNum="+ pageNum,
+	    		dataType:'json',
+	    		type:'get',
+	    		success:function(data){
+	    			$.each(data,function(i,json) {
+	    				var bucket = '';
+	    				bucket = '<div class="bucket_list_item size1">';
+		    			bucket += '<img src="/list/resources/upload/'+json.sav_file+'">'
+		    			bucket += '<div>';
+		    			bucket += '<c:choose>';
+		    			bucket += '<c:when test="'+json.image+'!=null">';
+		    			bucket += '<p><img src="/list/resources/memberImg/'+json.image+'">';
+		    			bucket += '</c:when>';
+		    			bucket += '<c:otherwise>';
+		    			bucket += '<p><img src="/list/resources/image/baseImage.jpg">';
+		    			bucket += '</c:otherwise>';
+		    			bucket += '</c:otherwise>';
+		    			bucket += '<span>'+json.member_id+'</span></p>'+json.title+'<br>';
+		    			bucket += '<p><img src="/list/resources/image/like.png"><span>'+json.li+'</span></p></div></div>';
+		    			$('.bucket_list').append(bucket);
+	    			});
+		            $('.bucket_list').masonry('reloadItems');
+		            $('.bucket_list').masonry('layout');
+		            pageNum += 10;
+	    		}
+	    	});
 	    }
 	});
 });

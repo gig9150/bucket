@@ -10,7 +10,7 @@
 				<hr class="login-hr">
 	    		<div class="file is-centered is-large">
 				  <label class="file-label">
-				    <input class="file-input" type="file" name="file" onchange="fileUpload(this)">
+				    <input class="file-input" type="file" accept=".jpg,.png" name="file" onchange="fileUpload(this)">
 				    <span class="file-cta">
 				      <span class="file-label">
 				        Choose a file…
