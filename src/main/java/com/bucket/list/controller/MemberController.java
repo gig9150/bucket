@@ -3,6 +3,8 @@ package com.bucket.list.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ public class MemberController {
 	
 //	로그인 기능
 	@RequestMapping("/member/loginOk")
-	public String gologinOk(String id,String pwd,HttpSession session,Model model) {
+	public String gologinOk(String idCheckbox,String id,String pwd,HttpSession session,Model model,HttpServletResponse response) {
 		HashMap<String ,String> map = new HashMap<String,String>();
 		map.put("id",id);
 		map.put("pwd",pwd);
@@ -36,6 +38,16 @@ public class MemberController {
 			return ".member.login";
 		}else {
 			session.setAttribute("id", member_id);
+//			if(idCheckbox!=null) {
+//				Cookie cookie = new Cookie("loginCookie",member_id);
+//				cookie.setPath("/");
+//				cookie.setMaxAge(60*60*24*7);
+//				Cookie cookie1 = new Cookie("checkBox",idCheckbox);
+//				cookie1.setPath("/");
+//				cookie1.setMaxAge(60*60*24*7);
+//				response.addCookie(cookie);
+//				response.addCookie(cookie1);
+//			}
 			return "redirect:/";
 		}
 	}

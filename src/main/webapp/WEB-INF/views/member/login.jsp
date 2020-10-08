@@ -28,8 +28,8 @@
 							</div>
 						</div>
 						<div class="field">
-							<label class="checkbox"> <input type="checkbox">
-								Remember me
+							<label class="checkbox"> 
+									<input type="checkbox" name="idCheckbox" checked>Remember me
 							</label>
 						</div>
 						<button class="button is-block is-info is-large is-fullwidth">

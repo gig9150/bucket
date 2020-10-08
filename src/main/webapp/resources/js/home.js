@@ -18,31 +18,29 @@ $(function(){
 		var scrollHeight = $(window).scrollTop() + $(window).height();
 	    var documentHeight = $(document).height();
 	    
-	    if(scrollHeight >= documentHeight-3){
+	    if(scrollHeight >= documentHeight-1){
 	    	$.ajax({
 	    		url:"/list/bucket/list?pageNum="+ pageNum,
 	    		dataType:'json',
 	    		type:'get',
 	    		success:function(data){
+//	    			mainPage bucketList 출력 코드
 	    			$.each(data,function(i,json) {
 	    				var bucket = '';
-	    				bucket = '<div class="bucket_list_item size1">';
+	    				bucket += '<div class="bucket_list_item size1">';
 		    			bucket += '<img src="/list/resources/upload/'+json.sav_file+'">'
 		    			bucket += '<div>';
-		    			bucket += '<c:choose>';
-		    			bucket += '<c:when test="'+json.image+'!=null">';
-		    			bucket += '<p><img src="/list/resources/memberImg/'+json.image+'">';
-		    			bucket += '</c:when>';
-		    			bucket += '<c:otherwise>';
-		    			bucket += '<p><img src="/list/resources/image/baseImage.jpg">';
-		    			bucket += '</c:otherwise>';
-		    			bucket += '</c:otherwise>';
+		    			if(json.image!=null){
+		    				bucket += '<p><img src="/list/resources/memberImg/'+json.image+'">';
+		    			}else{
+		    				bucket += '<p><img src="/list/resources/image/baseImage.jpg">';
+		    			}
 		    			bucket += '<span>'+json.member_id+'</span></p>'+json.title+'<br>';
 		    			bucket += '<p><img src="/list/resources/image/like.png"><span>'+json.li+'</span></p></div></div>';
 		    			$('.bucket_list').append(bucket);
 	    			});
 		            $('.bucket_list').masonry('reloadItems');
-		            $('.bucket_list').masonry('layout');
+	    			$('.bucket_list').masonry('layout');
 		            pageNum += 10;
 	    		}
 	    	});
