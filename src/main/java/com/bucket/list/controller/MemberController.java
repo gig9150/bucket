@@ -38,16 +38,6 @@ public class MemberController {
 			return ".member.login";
 		}else {
 			session.setAttribute("id", member_id);
-//			if(idCheckbox!=null) {
-//				Cookie cookie = new Cookie("loginCookie",member_id);
-//				cookie.setPath("/");
-//				cookie.setMaxAge(60*60*24*7);
-//				Cookie cookie1 = new Cookie("checkBox",idCheckbox);
-//				cookie1.setPath("/");
-//				cookie1.setMaxAge(60*60*24*7);
-//				response.addCookie(cookie);
-//				response.addCookie(cookie1);
-//			}
 			return "redirect:/";
 		}
 	}

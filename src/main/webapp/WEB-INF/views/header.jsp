@@ -17,10 +17,8 @@
 			<div class="navbar-item has-dropdown is-hoverable">
 				<a class="navbar-link"> 커뮤니티 </a>
 				<div class="navbar-dropdown">
-					<a class="navbar-item"> About </a> <a class="navbar-item"> Jobs
-					</a> <a class="navbar-item"> Contact </a>
-					<hr class="navbar-divider">
-					<a class="navbar-item"> Report an issue </a>
+					<a class="navbar-item"> 자유게시판 </a> <a class="navbar-item"> 버컷 경험 게시판
+					</a> <a class="navbar-item"> 유저 랭킹 </a>
 				</div>
 			</div>
 		</div>

@@ -58,6 +58,7 @@ public class BucketlistController {
 			return ".write.error";
 		}
 	}
+	
 	//버킷리스트 홈 페이지 데이터 ajax
 	@RequestMapping("/bucket/list")
 	public @ResponseBody List<BucketVo> getBucket(int pageNum) {

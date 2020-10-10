@@ -19,4 +19,32 @@
 			</div>
 		</div> 
 	</c:forEach>
+	<div class="modal">
+	  <div class="modal-background"></div>
+	  <div class="modal-card">
+	    <header class="modal-card-head">
+	      <p class="modal-card-title">Modal title</p>
+	      <button class="delete" aria-label="close"></button>
+	    </header>
+	    <section class="modal-card-body">
+	      <!-- Content ... -->
+	    </section>
+	    <footer class="modal-card-foot">
+	      <button class="button is-success">Save changes</button>
+	      <button class="button cancel">Cancel</button>
+	    </footer>
+	  </div>
+	</div>
 </div>
+<script>
+	$('.bucket_list_item').on('click',function(){
+		$('.modal').addClass('is-active');
+		$('.modal').toggleClass('is-clipped');
+	});
+	$('.cancel').on('click',function(){
+		$('.modal').removeClass('is-active');
+	});
+	$('.modal-background').on('click',function(){
+		$('.modal').removeClass('is-active');
+	});
+</script>

@@ -32,8 +32,6 @@ public class HomeController {
 		session.getServletContext().setAttribute("cp",cp);
 		List<BucketVo> list = service.getBucket(0);
 		model.addAttribute("list",list);
-//		버킷리스트 목록 에 저장.
-//		session.getServletContext().setAttribute("list",list);
 		return ".main";
 	}
 

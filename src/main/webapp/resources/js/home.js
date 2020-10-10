@@ -18,6 +18,7 @@ $(function(){
 		var scrollHeight = $(window).scrollTop() + $(window).height();
 	    var documentHeight = $(document).height();
 	    
+	    
 	    if(scrollHeight >= documentHeight-1){
 	    	$.ajax({
 	    		url:"/list/bucket/list?pageNum="+ pageNum,
@@ -39,8 +40,10 @@ $(function(){
 		    			bucket += '<p><img src="/list/resources/image/like.png"><span>'+json.li+'</span></p></div></div>';
 		    			$('.bucket_list').append(bucket);
 	    			});
+	    			
 		            $('.bucket_list').masonry('reloadItems');
 	    			$('.bucket_list').masonry('layout');
+	    			
 		            pageNum += 10;
 	    		}
 	    	});
