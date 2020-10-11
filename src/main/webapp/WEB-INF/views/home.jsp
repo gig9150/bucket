@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="bucket_list">
 	<c:forEach items="${list}" var="vo">
-		<div class="bucket_list_item size1">
+		<div class="bucket_list_item size1" data-title="${vo.title}" data-content="${vo.content}">
 			<img src="${cp}/resources/upload/${vo.sav_file}">
 			<div>
 				<c:choose>
@@ -23,28 +23,14 @@
 	  <div class="modal-background"></div>
 	  <div class="modal-card">
 	    <header class="modal-card-head">
-	      <p class="modal-card-title">Modal title</p>
-	      <button class="delete" aria-label="close"></button>
+	      <p class="modal-card-title"></p>
+	      <button class="detail_cancel delete" aria-label="close"></button>
 	    </header>
-	    <section class="modal-card-body">
-	      <!-- Content ... -->
-	    </section>
+	    <section class="modal-card-body"></section>
 	    <footer class="modal-card-foot">
 	      <button class="button is-success">Save changes</button>
-	      <button class="button cancel">Cancel</button>
+	      <button class="button detail_cancel">Cancel</button>
 	    </footer>
 	  </div>
 	</div>
-</div>
-<script>
-	$('.bucket_list_item').on('click',function(){
-		$('.modal').addClass('is-active');
-		$('.modal').toggleClass('is-clipped');
-	});
-	$('.cancel').on('click',function(){
-		$('.modal').removeClass('is-active');
-	});
-	$('.modal-background').on('click',function(){
-		$('.modal').removeClass('is-active');
-	});
-</script>
+</div

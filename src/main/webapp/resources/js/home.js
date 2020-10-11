@@ -1,7 +1,7 @@
 $(function(){
 //	페이징처리 변수
 	var pageNum = 10;
-	
+//	masonry 라이브러리 
 	var $bucket = $('.bucket_list').masonry({
         itemSelector:'.bucket_list_item',
         columnWidth:110,
@@ -13,7 +13,7 @@ $(function(){
 		$bucket.masonry('layout');
 	});
 	
-	
+//	무한 스크롤
 	$(window).scroll(function(){
 		var scrollHeight = $(window).scrollTop() + $(window).height();
 	    var documentHeight = $(document).height();
@@ -49,5 +49,18 @@ $(function(){
 	    	});
 	    }
 	});
+	
+//	bucket detail page on/off
+	
+	$('.bucket_list_item').on('click',function(){
+		$('.modal').addClass('is-active');
+		$('.modal-card-title').html($(this).data('title'));
+		$('.modal-card-body').html($(this).data('content'));
+	});
+	
+	$('.detail_cancel,.modal-background').on('click',function(){
+		$('.modal').removeClass('is-active');
+	});
+	
 });
 
