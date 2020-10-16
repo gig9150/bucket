@@ -31,15 +31,38 @@ body {
 	padding-top: 60px;
 }
 
-/* masonry */
+.bucket_list{
+	position:relative;
+}
 
 .bucket_list_item {
-	margin: 0 0 20px 20px;
-	float:left;
-	width: 17%;
+	position:absolute;
+	width:18%;
+/* 	margin: 0 0 20px 20px; */
 	border: 2px solid solid;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
+.bucket_list_item:nth-child(5n+1){
+	left:0;
+}
+
+.bucket_list_item:nth-child(5n+2){
+	left:20%;
+}
+
+.bucket_list_item:nth-child(5n+3){
+	left:40%;
+}
+
+.bucket_list_item:nth-child(5n+4){
+	left:60%;
+}
+
+.bucket_list_item:nth-child(5n+5){
+	left:80%;
+}
+
 
 .bucket_list_item > img {
 	height: 70%;
@@ -48,7 +71,7 @@ body {
 
 .bucket_list_item div {
 	height: 30%;
-	widht: 100%;
+	width: 100%;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	padding: 5px 0 0 5px;
 }

@@ -15,8 +15,6 @@
 <script src="${cp}/resources/js/jquery-3.5.1.js"></script>
 <script src="${cp}/resources/js/summernote/summernote-lite.js"></script>
 <script src="${cp}/resources/js/summernote/lang/summernote-ko-KR.js"></script>
-<script src="${cp}/resources/js/masonry.pkgd.min.js"></script>
-<script src="${cp}/resources/js/imagesloaded.pkgd.js"></script>
 <script src="${cp}/resources/js/home.js"></script>
 <script src="${cp}/resources/js/bucket.js"></script>
 </head>
