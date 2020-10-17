@@ -38,7 +38,7 @@ body {
 .bucket_list_item {
 	position:absolute;
 	width:18%;
-/* 	margin: 0 0 20px 20px; */
+	margin: 0 0 20px 20px;
 	border: 2px solid solid;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -62,6 +62,7 @@ body {
 .bucket_list_item:nth-child(5n+5){
 	left:80%;
 }
+
 
 
 .bucket_list_item > img {

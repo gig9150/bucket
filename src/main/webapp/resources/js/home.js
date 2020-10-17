@@ -1,42 +1,17 @@
 $(function(){
 //	페이징처리 변수
 	var pageNum = 10;
+//	layout 변수
+	var bucketCount = 11;
 	
-//	for(let i=6;i<=10;i++){
-//		$('.bucket_list_item:nth-child('+i+')').css('top',
-//				parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
-//				+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
-//				+'px');
-//	}
-	
-	$('.bucket_list_item:nth-child(6)').css('top',
-			parseInt($('.bucket_list_item:nth-child(1)').css('top'))
-			+parseInt($('.bucket_list_item:nth-child(1)').css('height'))
-			+'px');
-	$('.bucket_list_item:nth-child(7)').css('top',
-			parseInt($('.bucket_list_item:nth-child(2)').css('top'))
-			+parseInt($('.bucket_list_item:nth-child(2)').css('height'))
-			+'px');
-	console.log(parseInt($('.bucket_list_item:nth-child(2)').css('top')));
-	console.log($('.bucket_list_item:nth-child(2)').css('height'));
-	console.log(parseInt($('.bucket_list_item:nth-child(3)').css('top')));
-	console.log(parseInt($('.bucket_list_item:nth-child(3)').css('height')));
-	console.log(parseInt($('.bucket_list_item:nth-child(4)').css('top')));
-	console.log(parseInt($('.bucket_list_item:nth-child(4)').css('height')));
-	console.log(parseInt($('.bucket_list_item:nth-child(5)').css('top')));
-	console.log(parseInt($('.bucket_list_item:nth-child(5)').css('height')));
-	$('.bucket_list_item:nth-child(8)').css('top',
-			parseInt($('.bucket_list_item:nth-child(3)').css('top'))
-			+parseInt($('.bucket_list_item:nth-child(3)').css('height'))
-			+'px');
-	$('.bucket_list_item:nth-child(9)').css('top',
-			parseInt($('.bucket_list_item:nth-child(4)').css('top'))
-			+parseInt($('.bucket_list_item:nth-child(4)').css('height'))
-			+'px');
-	$('.bucket_list_item:nth-child(10)').css('top',
-			parseInt($('.bucket_list_item:nth-child(5)').css('top'))
-			+parseInt($('.bucket_list_item:nth-child(5)').css('height'))
-			+'px');
+	setInterval(function() {
+		for(let i=6;i<=10;i++){
+			$('.bucket_list_item:nth-child('+i+')').css('top',
+					parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
+					+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
+					+20+'px');
+		}
+	}, 10);
 
 	
 //	무한 스크롤
@@ -45,7 +20,7 @@ $(function(){
 	    var documentHeight = $(document).height();
 	    
 	    
-	    if(scrollHeight >= documentHeight-1){
+	    if(scrollHeight >= documentHeight- 1){
 	    	$.ajax({
 	    		url:"/list/bucket/list?pageNum="+ pageNum,
 	    		dataType:'json',
@@ -54,7 +29,7 @@ $(function(){
 //	    			mainPage bucketList 출력 코드
 	    			$.each(data,function(i,json) {
 	    				var bucket = '';
-	    				bucket += '<div class="bucket_list_item size1">';
+	    				bucket += '<div class="bucket_list_item">';
 		    			bucket += '<img src="/list/resources/upload/'+json.sav_file+'">'
 		    			bucket += '<div>';
 		    			if(json.image!=null){
@@ -67,7 +42,16 @@ $(function(){
 		    			$('.bucket_list').append(bucket);
 	    			});
 	    			
+	    			for(let i=bucketCount;i<=bucketCount+10;i++){
+	    				$('.bucket_list_item:nth-child('+i+')').css('top',
+	    						parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
+	    						+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
+	    						+20+'px');
+	    			}
 	    			
+	    			
+	    			
+	    			bucketCount += 10;
 		            pageNum += 10;
 	    		}
 	    	});
