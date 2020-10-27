@@ -3,7 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="bucket_list">
 	<c:forEach items="${list}" var="vo" varStatus="status">
-		<div class="bucket_list_item" data-title="${vo.title}" data-content="${vo.content}">
+		<div class="bucket_list_item" 
+		data-title="${vo.title}" data-content="${vo.content}" 
+		data-image="${cp}/resources/upload/${vo.sav_file}" data-id="${vo.member_id}">
 			<img src="${cp}/resources/upload/${vo.sav_file}">
 			<div>
 				<c:choose>
@@ -23,14 +25,17 @@
 <div class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title"></p>
-      <button class="detail_cancel delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body"></section>
+<!--     <header class="modal-card-head"> -->
+<!--       <p class="modal-card-title"></p> -->
+<!--       <button class="detail_cancel delete" aria-label="close"></button> -->
+<!--     </header> -->
+    <section class="modal-card-body">
+		<div class="columns">
+		  <div class="column is-half modal-card-body-image"></div>
+		  <div class="column is-half modal-card-body-content"></div>
+		</div>
+    </section>
     <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button detail_cancel">Cancel</button>
     </footer>
   </div>
 </div>

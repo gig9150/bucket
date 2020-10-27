@@ -2,16 +2,17 @@ $(function(){
 //	페이징처리 변수
 	var pageNum = 10;
 //	layout 변수
-	var bucketCount = 11;
+//	var bucketCount = 11;
+//	console.log(bucketCount);
 	
-	setInterval(function() {
-		for(let i=6;i<=10;i++){
-			$('.bucket_list_item:nth-child('+i+')').css('top',
-					parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
-					+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
-					+20+'px');
-		}
-	}, 10);
+//	setTimeout(function() {
+//		for(let i=6;i<=10;i++){
+//			$('.bucket_list_item:nth-child('+i+')').css('top',
+//					parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
+//					+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
+//					+20+'px');
+//		}
+//	}, 50);
 
 	
 //	무한 스크롤
@@ -20,7 +21,7 @@ $(function(){
 	    var documentHeight = $(document).height();
 	    
 	    
-	    if(scrollHeight >= documentHeight- 1){
+	    if(scrollHeight >= documentHeight-0.5){
 	    	$.ajax({
 	    		url:"/list/bucket/list?pageNum="+ pageNum,
 	    		dataType:'json',
@@ -29,7 +30,8 @@ $(function(){
 //	    			mainPage bucketList 출력 코드
 	    			$.each(data,function(i,json) {
 	    				var bucket = '';
-	    				bucket += '<div class="bucket_list_item">';
+	    				bucket += '<div class="bucket_list_item" data-title="'+json.title+'" data-content="'+json.content+'" data-image="/list/resources/upload/'+json.sav_file+'" data-id="'+json.member_id+'">';
+	    				console.log(json.sav_file);
 		    			bucket += '<img src="/list/resources/upload/'+json.sav_file+'">'
 		    			bucket += '<div>';
 		    			if(json.image!=null){
@@ -42,17 +44,27 @@ $(function(){
 		    			$('.bucket_list').append(bucket);
 	    			});
 	    			
-	    			for(let i=bucketCount;i<=bucketCount+10;i++){
-	    				$('.bucket_list_item:nth-child('+i+')').css('top',
-	    						parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
-	    						+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
-	    						+20+'px');
-	    			}
+	    			$('.bucket_list_item').on('click',function(){
+	    				$('.modal').addClass('is-active');
+	    				$('.modal-card-title').html($(this).data('title'));
+	    				$('.modal-card-body-content').html($(this).data('content'));
+	    				$('.modal-card-body-image').html('<img src="'+$(this).data('image')+'">');
+	    			});
 	    			
+	    			$('.modal-background').on('click',function(){
+	    				$('.modal').removeClass('is-active');
+	    			});
 	    			
-	    			
-	    			bucketCount += 10;
 		            pageNum += 10;
+		            
+//	    			bucketCount += 10;
+//	    			for(let i=bucketCount;i<=bucketCount+10;i++){
+//    				$('.bucket_list_item:nth-child('+i+')').css('top',
+//    						parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('top'))
+//    						+parseInt($('.bucket_list_item:nth-child('+(i-5)+')').css('height'))
+//    						+20+'px');
+//    				}
+
 	    		}
 	    	});
 	    }
@@ -63,10 +75,11 @@ $(function(){
 	$('.bucket_list_item').on('click',function(){
 		$('.modal').addClass('is-active');
 		$('.modal-card-title').html($(this).data('title'));
-		$('.modal-card-body').html($(this).data('content'));
+		$('.modal-card-body-content').html($(this).data('content'));
+		$('.modal-card-body-image').html('<img src="'+$(this).data('image')+'">');
 	});
 	
-	$('.detail_cancel,.modal-background').on('click',function(){
+	$('.modal-background').on('click',function(){
 		$('.modal').removeClass('is-active');
 	});
 	

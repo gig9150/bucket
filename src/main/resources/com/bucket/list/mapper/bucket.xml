@@ -26,7 +26,6 @@
 		group by l.bucket_id
 		order by b.bucket_id desc
 		limit #{pageNum},10
-
 	</select>
 	
 </mapper>
