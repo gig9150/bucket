@@ -46,8 +46,6 @@ $(function(){
 	    			
 	    			$('.bucket_list_item').on('click',function(){
 	    				$('.modal').addClass('is-active');
-	    				$('.modal-card-title').html($(this).data('title'));
-	    				$('.modal-card-body-content').html($(this).data('content'));
 	    				$('.modal-card-body-image').html('<img src="'+$(this).data('image')+'">');
 	    			});
 	    			
@@ -74,8 +72,6 @@ $(function(){
 	
 	$('.bucket_list_item').on('click',function(){
 		$('.modal').addClass('is-active');
-		$('.modal-card-title').html($(this).data('title'));
-		$('.modal-card-body-content').html($(this).data('content'));
 		$('.modal-card-body-image').html('<img src="'+$(this).data('image')+'">');
 	});
 	

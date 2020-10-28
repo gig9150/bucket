@@ -92,6 +92,36 @@ body {
 	height:20px;
 }
 
+/* 버킷리스트 상세페이지 css */
+.content-main-info,.content-comments{
+	height:40%;
+}
+
+.content-comments{
+	height:55%;
+	overflow:auto;
+}
+
+.content-etc{
+	height:5%;
+	position:relative;
+}
+
+.etc-button{
+	position:absolute;
+	background:url(../image/10.png) no-repeat;
+	background-color:white;
+	height:30px;
+	width:30px;
+	right:0;
+	padding:0;
+}
+
+.modal-card-body-content hr{
+	margin:0;
+}
+
+
 /* 버킷리스트 작성페이지 css */
 #column2 .control input{
 	margin:20px 0 20px 0;

@@ -32,7 +32,18 @@
     <section class="modal-card-body">
 		<div class="columns">
 		  <div class="column is-half modal-card-body-image"></div>
-		  <div class="column is-half modal-card-body-content"></div>
+		  <div class="column is-half modal-card-body-content">
+		  	<div class="content-main-info">
+		  		main-info
+		  	</div><hr>
+		  	<div class="content-comments">
+		  		comments<br>comments<br>comments<br>comments<br>comments<br>comments<br>comments<br>comments<br>comments<br>
+		  	</div><hr>
+		  	<div class="content-etc">
+		  		<input type="text" class="input is-small etc-input">
+		  		<div class="etc-button"></div>
+		  	</div>
+		  </div>
 		</div>
     </section>
     <footer class="modal-card-foot">
