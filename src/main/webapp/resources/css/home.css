@@ -93,27 +93,68 @@ body {
 }
 
 /* 버킷리스트 상세페이지 css */
-.content-main-info,.content-comments{
+.modal-image{
+	height:90%;
+}
+
+.modal-etc{
+	height:10%;
+	position:relative;
+}
+
+.modal-etc-like{
+/* 	background: url(../image/beforeHeart.png) no-repeat #ffffff; */
+/* 	background-size:cover; */
+/* 	width: 26px; */
+/*  height: 25px; */
+	position:absolute;
+    right: 45px;
+    top:5px;
+    border:0;
+    cursor:pointer;
+}
+
+.modal-etc-follow{
+/* 	background: url(../image/beforeHeart.png) no-repeat #ffffff; */
+/* 	background-size:cover; */
+/* 	width: 26px; */
+/*  height: 25px; */
+	position:absolute;
+	text-align:center;
+    right: 0;
+    top:5px;
+    border:0;
+    cursor:pointer;
+}
+
+.content-main-info{
 	height:40%;
 }
 
 .content-comments{
-	height:55%;
+	height:52%;
 	overflow:auto;
 }
 
 .content-etc{
-	height:5%;
+	height:8%;
 	position:relative;
+}
+
+.etc-input{
+	height: 25px;
+    margin-top: 5px;	
 }
 
 .etc-button{
 	position:absolute;
-	background:url(../image/10.png) no-repeat;
-	background-color:white;
-	height:30px;
+	background:url(../image/말풍선.png) no-repeat;
+	background-size: cover;
+	border:0;
+	height:25px;
 	width:30px;
 	right:0;
+	top:5px;
 	padding:0;
 }
 

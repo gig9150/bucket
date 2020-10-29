@@ -31,7 +31,13 @@
 <!--     </header> -->
     <section class="modal-card-body">
 		<div class="columns">
-		  <div class="column is-half modal-card-body-image"></div>
+		  <div class="column is-half modal-card-body-image">
+		  	<div class="modal-image"></div>
+		  	<div class="modal-etc">
+		  		<span class="modal-etc-like">좋아요</span>
+		  		<span class="modal-etc-follow">팔로우</span>
+		  	</div>
+		  </div>
 		  <div class="column is-half modal-card-body-content">
 		  	<div class="content-main-info">
 		  		main-info
@@ -41,12 +47,10 @@
 		  	</div><hr>
 		  	<div class="content-etc">
 		  		<input type="text" class="input is-small etc-input">
-		  		<div class="etc-button"></div>
+		  		<input type="button" class="etc-button"></div>
 		  	</div>
 		  </div>
 		</div>
     </section>
-    <footer class="modal-card-foot">
-    </footer>
   </div>
 </div>

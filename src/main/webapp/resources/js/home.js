@@ -46,7 +46,7 @@ $(function(){
 	    			
 	    			$('.bucket_list_item').on('click',function(){
 	    				$('.modal').addClass('is-active');
-	    				$('.modal-card-body-image').html('<img src="'+$(this).data('image')+'">');
+	    				$('.modal-image').html('<img src="'+$(this).data('image')+'">');
 	    			});
 	    			
 	    			$('.modal-background').on('click',function(){
@@ -72,11 +72,32 @@ $(function(){
 	
 	$('.bucket_list_item').on('click',function(){
 		$('.modal').addClass('is-active');
-		$('.modal-card-body-image').html('<img src="'+$(this).data('image')+'">');
+		$('.modal-image').html('<img src="'+$(this).data('image')+'">');
 	});
 	
 	$('.modal-background').on('click',function(){
 		$('.modal').removeClass('is-active');
+	});
+	
+//	좋아요,팔로우 
+	$('.modal-etc-like').click(function(){
+		if($(this).html() == '좋아요'){
+			$(this).html('좋아요 취소');
+			$(this).css('color','blue');
+		}else{
+			$(this).html('좋아요');
+			$(this).css('color','black');
+		}
+	});
+	
+	$('.modal-etc-follow').click(function(){
+		if($(this).html() == '팔로우'){
+			$(this).html('팔로잉');
+			$(this).css('color','blue');
+		}else{
+			$(this).html('팔로우');
+			$(this).css('color','black');
+		}
 	});
 	
 });
